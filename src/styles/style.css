@@ -1,0 +1,101 @@
+body {
+	text-align: center;
+	background-color: #183b4e;
+	margin: 0;
+	padding: 8px;
+}
+
+
+.color-primary-dark 			{ color: #0A1921 }
+.color-primary-mid 				{ color: #183b4e }
+.color-primary-light 			{ color: #2e7499 }
+.color-primary-tint 			{ color: #d5e8f2 }
+.color-primary-tint-compliment 	{ color: #f2dfd5 }
+
+
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+th {
+	background-color: #2e7499;
+	color: #d5e8f2;
+}
+
+
+.split-page {
+	width: 100%;
+	height: 950px;
+}
+
+.split-page .half {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#scoreboard {
+	 width: 100%;
+	 border-collapse: collapse;
+}
+
+canvas {
+	width: 100%;
+	height: calc(100% - 200px);
+}
+
+#panelboard {
+	width: 100%;
+	height: 200px;
+}
+
+
+.topnav {
+	width: 100%;
+  	background-color: #2e7499;
+  	text-align: left;
+}
+
+.topnav a {
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: "Arial";
+	display: inline-block;
+}
+
+.topnav a:hover {
+	background-color: #d5e8f2;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #2e7499;
+	color: white;
+}
+
+.topnav button {
+	color: #f2f2f2;
+	text-align: center;
+	border: none;
+	padding: 14px 16px;
+	text-decoration: none;
+	background-color: #2e7499;
+	font-size: 16px;
+	font-family: "Arial";
+	display: inline-block;
+}
+
+.topnav button:hover {
+	background-color: #d5e8f2;
+	color: black;
+}
+
+.topnav button.active {
+	background-color: #2e7499;
+	color: white;
+}

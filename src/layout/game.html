@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" type="image/svg" href="../../assets/img/icon_hexagons.png">
+		<link rel="stylesheet" type="text/css" href="../styles/game.css">
+		<title>Hexgrid AI</title>
+	</head>
+
+<body>
+	<div class="topnav">
+		<!-- <a href="select.html" style="border-right: 1px solid #d5e8f2;">Back</a> -->
+		<a class="nav_item" href="select.html">Back</a>
+		<button class="nav_item" id="btn_start" disabled="true" onclick="startGame()">Play</button><button class="nav_item" id="btn_stop" disabled="true" onclick="stopGame()">Stop</button>
+		<button class="nav_item" id="btn_step" disabled="true" onclick="playStep()">Step</button>
+		<button class="nav_item" id="btn_speed_up" onclick="speedUpGame()">Speed Up</button>
+		<button class="nav_item" id="btn_speed_down" onclick="speedDownGame()">Speed Down</button>
+		<button class="nav_item" id="btn_restart" onclick="restartGame()">Restart</button>
+		<button class="nav_item" id="btn_switch_ori" onclick="switchOrientation()">Switch Orientation</button>
+		<button class="nav_item" onclick="audioMuteUnmute()" onmouseenter="hoverMute();" onmouseleave="unhoverMute();"><img id="audioImg" src="https://img.icons8.com/metro/20/d5e8f2/no-audio.png"></button>
+	</div>
+	<br>
+
+	<div class="split-page">
+		<div class="half">
+			<canvas id="canvas">Your browser does not support the HTML5 canvas tag.</canvas>
+		</div>
+		<div class="half" style="float: right">
+			<table id="scoreboard">
+				<tr>	
+				    <th>Name</th>
+				    <th>Hexagons</th>
+				    <th>Resources</th>
+				    <th>Exceptions</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div id="winnerModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2>Winner</h2>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<h3>Congratulations</h3>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../logic/game.js"></script>
+
+
+    
+</body>
+
+</html>
+

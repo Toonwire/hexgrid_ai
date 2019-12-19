@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" type="image/svg" href="../../assets/img/icon_hexagons.png">
+		<link rel="stylesheet" type="text/css" href="../styles/edit.css">
+		<title>Hexgrid AI</title>
+	</head>
+
+	<body>
+
+		<div class="topnav">
+			<button class="nav_item" onclick="saveCode()">Save</button>
+			<a class="nav_item" href="select.html" onclick="saveCode()">Compile</a>
+			<a class="nav_item" href="docs.html" onclick="saveCode()">Rules & Documentation</a>
+		</div>
+
+		<div class="split-page">
+			<div class="half">
+				<div id="editor-window">
+					<div id="editor"></div>
+				</div>
+			</div>
+			<div class="half">
+				<div id="name_panel">
+					<label>Name:</label>
+					<span contenteditable id="algo_name" spellcheck="false" onkeydown="handleKeypress(this)" onpaste="handlePaste()">MyCode</span>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- EDITOR STUFF -->
+		<script src="../../ace_editor_js/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../ace_editor_js/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../ace_editor_js/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var editor = ace.edit("editor");
+			editor.setTheme("ace/theme/twilight");
+			var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+			editor.session.setMode(new JavaScriptMode());
+		</script>
+
+		<script type="text/javascript" src="../logic/edit.js"></script>
+
+	</body>
+
+</html>
+

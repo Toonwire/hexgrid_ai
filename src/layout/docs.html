@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" type="image/svg" href="../../assets/img/icon_hexagons.png">
+		<link rel="stylesheet" type="text/css" href="../styles/docs.css">
+		<title>Hexgrid AI</title>
+	</head>
+
+	<body>
+
+		<div class="topnav">
+			<a class="nav_item" href="edit.html">Back</a>
+		</div>
+		<div class="split-page">
+			<div class="half">
+				<div style="margin-bottom: 50px">
+					<h1>Rules</h1>
+						<p>Write a script and compete against other AIs in a Batte Royal fight to conquer the hexagonal grid.</p>
+
+						<h3>The setup</h3>
+							<ul style="list-style: disc">
+								<li>You start with just a single hexagon cell in the grid and 10 resources.</li>
+								<li>
+									To take over a cell you must transfer resources from a cell that you own one of its neighbors.<br>
+									If the amount of resources transferred exceeds that of the targeted cell, you will take control of that cell.
+								</li>
+								<li>One transaction is available to each player every round.</li>
+								<li>After each round all cells occupied by players gain 1 resource.</li>
+							</ul>
+
+						<h3>Transaction rules</h3>
+							<ul style="list-style: disc">
+								<li>Transfered resources must be a non-negative integer.</li>
+								<li>You cannot transfer more resources from a cell than is available to that cell.</li>
+								<li>Resources can only be transfered from cells that you own.</li>
+								<li>Transactions must include distinct cells - i.e. it is not possible for a cell to be both donor and recipient in a transaction.</li>
+								<li>The cells of a transaction must be neighbors when attacking (transferring resources from an owned cell to a non-owned cell).</li>
+								<li>Transaction between cells that are both owned by the player does not have to be neighbors, although they must still be connected through other cells of that player.</li>
+								<li>It is possible for a transaction to cause the receiving cell to exceed its natural growth.</li>
+							</ul>
+
+						<h3>Mining field</h3>
+							<ul style="list-style: disc">
+								<li>Surrounding each player's initial cell are six unoccupied cells with a random amount of resources.</li>
+								<li>Getting through the mining field gives access to the rest of the grid, where unoccupied cells are freely available.</li>
+								<li>While the mining field resources are randomly generated, they are the same for every player in the grid.</li>
+								<li>The mining field resources are shuffled around for each player to spice things up a bit.</li>
+							</ul>
+
+						<h3>Super cells</h3>
+							<ul style="list-style: disc">
+								<li>Regular cells have a maximum natural growth of 100 resources.</li>
+								<li>Super cells are cells that will continue to grow until they reach 300 resources.</li>
+								<li>Super cells are indicated on the grid with lines across it.</li>
+								<li>Super cells are located just beyond the mining field of each player.</li>
+							</ul>
+
+				</div>
+			</div>
+			<div class="half" style="float: right">
+				<div style="margin-bottom: 50px">
+					<h1>Documentation</h1>
+						<p>To determine how to spend transactions, each player has access to an their owned cells denoted <code>myCells (PlayerCell[])</code>.<br>
+						Each algorithm's <code>turn</code> function will be called every round and should return a <code>transaction</code> object.
+						</p>
+
+						<h3><code>PlayerCell</code></h3>
+							<p>
+								<code>id (string)</code>
+								<br>Unique identifier for the hexagon cell.
+							</p>
+							<p>
+								<code>resources (int)</code>
+								<br>Amount of resources available in the cell.
+							</p>
+							<p>
+								<code>maxGrowth (int)</code>
+								<br>How much the cell will naturally grow before not gaining anymore resources.
+							</p>
+							<p>
+								<!-- <code>owner</code> - <code>(enum HexOwner)</code> The owner of the cell. -->
+								<code>neighbors (NeighborCell[])</code>
+								<br>Array of neighboring cells.
+							</p>
+
+						<h3><code>NeighborCell</code></h3>
+							<p>
+								<code>id (string)</code>	
+								<br>Unique identifier for the hexagon cell.
+							</p>
+							<p>
+								<code>resources (int)</code> 
+								<br>Amount of resources available in the cell.
+							</p>
+							<p>
+								<code>maxGrowth (int)</code>
+								<br>How much the cell will naturally grow before not gaining anymore resources.
+							</p>
+							<p>
+								<code>owner (enum HexOwner)</code>
+								<br>The owner of this cell.
+							</p>
+
+						<h3><code>HexOwner</code></h3>
+							<p>
+								<code>NONE (int)</code> 
+								<br>Unoccupied hexagon controlled by no one.
+							</p>
+							<p>
+								<code>OWN (int)</code> 
+								<br>Hexagon controlled by the player.
+							</p>
+							<p>
+								<code>OTHER (int)</code> 
+								<br>Hexagon controlled another player.
+							</p>
+
+						<h3><code>Transaction</code></h3>
+							<p>
+								<code>fromId (string)</code> 
+								<br>Id of the cell from which resources will be taken.
+							</p>
+							<p>
+								<code>toId (string)</code> 
+								<br>Id of the cell to receive the resources.
+							</p>
+							<p>
+								<code>transferAmount (int)</code> 
+								<br>The amount of resources to be transfered.
+							</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
